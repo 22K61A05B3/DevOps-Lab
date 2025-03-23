@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        VENV_DIR = 'venv'  // Name of the virtual environment
+        PYTHON = 'C:\\Users\\YourUsername\\AppData\\Local\\Programs\\Python\\Python39\\python.exe'
+        VENV_DIR = 'venv'
     }
 
     stages {
@@ -14,39 +15,20 @@ pipeline {
 
         stage('Setup Virtual Environment') {
             steps {
-                script {
-                    if (isUnix()) {
-                        sh 'python3 -m venv $VENV_DIR'
-                        sh 'source $VENV_DIR/bin/activate'
-                    } else {
-                        bat 'python -m venv %VENV_DIR%'
-                        bat 'call %VENV_DIR%\\Scripts\\activate'
-                    }
-                }
+                bat "${PYTHON} -m venv ${VENV_DIR}"
+                bat "call ${VENV_DIR}\\Scripts\\activate"
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                script {
-                    if (isUnix()) {
-                        sh 'pip install -r requirements.txt || echo "No requirements.txt found"'
-                    } else {
-                        bat 'pip install -r requirements.txt || echo "No requirements.txt found"'
-                    }
-                }
+                bat "call ${VENV_DIR}\\Scripts\\activate && pip install -r requirements.txt"
             }
         }
 
         stage('Run Flask App') {
             steps {
-                script {
-                    if (isUnix()) {
-                        sh 'python app.py &'
-                    } else {
-                        bat 'start /B python app.py'
-                    }
-                }
+                bat "call ${VENV_DIR}\\Scripts\\activate && start /B python app.py"
             }
         }
     }
