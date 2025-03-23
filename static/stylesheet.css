@@ -1,0 +1,112 @@
+html, body {
+    font-size: 25px;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    align-items: center;
+    font-family: 'Times New Roman', serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+div.main {
+    background-color: white;
+    max-width: 90%;
+    width: 739px;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form div {
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+div.main1 div {
+    padding: 0;
+}
+
+div.main1 {
+    display: flex;
+    gap: 20px;
+}
+
+div.sub1 {
+    display: grid;
+}
+
+input[type=text], input[type=email], input[type=tel], input[type=password] {
+    padding: 10px;
+    font-size: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input::placeholder {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+label.gender-label {
+    margin-right: 50px;
+}
+
+div.radio {
+    padding: 0;
+    display: grid;
+    margin: 0;
+}
+
+div.radiolabel {
+    padding-bottom: 20px;
+}
+
+div.radio div.radioinput {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+div.radioinput div {
+    padding-top: 0;
+}
+
+div.head {
+    padding-top: 30px;
+}
+
+div.sub {
+    padding-bottom: 40px;
+}
+
+input[type=submit] {
+    width: 650px;
+    padding: 15px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type=submit]:hover {
+    opacity: 0.9;
+}
+
+span {
+    text-decoration: underline;
+    text-decoration-color: blue;
+}
